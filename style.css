@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  background-color: #0376CD;
+}
+
+.builder {
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  font-style: url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+  background: #BFC6CC;
+  max-width: 350px;
+  padding: 20px;
+  margin: 0 auto;
+  border-radius: 10px;
+  border-color: black;
+}
+
+.builder:hover {
+  font-size: 25px;
+  max-width: 340px;
+  transition: 0.5s;
+  box-shadow: 0 0 30px rgba(201, 202, 205, 1);
+}
+
+.botyaratish {
+  font-size: 25px;
+  text-align: center;
+  color: white;
+}
+
+.botfather {
+  font-size: 15px;
+  color: white;
+  padding: 15px
+}
+
+.newbot {
+  background: #E7E7E8;
+  max-width: 330px;
+  height: 700px;
+  padding: 15px;
+  margin: 0 auto;
+  border-radius: 20px;
+  border-color: black;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.newbot:hover {
+  max-width: 330px;
+  height: 700px;
+  transition: 0.5s;
+  transform: translateY(-5px);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 2px solid black;
+}
+
+img {
+  width: 295px;
+  height: 300px;
+  margin: 0 auto;
+  border-radius: 10px;
+  border-color: black;
+}
+
+img:hover {
+  width: 300px;
+  height: 305px;
+  transition: 0.5s;
+  box-shadow: 0 0 10px black;
+}
+
+.token {
+  background: #E7E7E8;
+  max-width: 330px;
+  height: 630px;
+  padding: 15px;
+  margin: 0 auto;
+  border-radius: 20px;
+  border-color: black;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.token:hover {
+  max-width: 330px;
+  height: 630px;
+  transition: 0.5s;
+  transform: translateY(-5px);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 2px solid black;
+}
+
+.oylik {
+  background: #E7E7E8;
+  max-width: 330px;
+  height: 550px;
+  padding: 15px;
+  margin: 0 auto;
+  border-radius: 20px;
+  border-color: black;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.oylik:hover {
+  max-width: 330px;
+  height: 550px;
+  transition: 0.5s;
+  transform: translateY(-5px);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border: 2px solid black;
+}
+
+.builder a {
+text-decoration: none;
+color: white;
+font-family: "Montserrat", serif;
+text-shadow: 1px 1px 1px black;
+}
+
+button a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+button {
+  border-radius: 10px;
+}
