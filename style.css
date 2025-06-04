@@ -22,14 +22,14 @@ body {
   margin: 0 auto;
   border-radius: 10px;
   border-color: black;
-  transition: 0.5s;
+  transition: 2s;
 }
 
 .builder:hover {
   font-size: 17px;
   max-width: 340px;
   background-color: blue;
-  transition: 0.5s;
+  transition: 2s;
   box-shadow: 0 0 30px rgba(201, 202, 205, 1);
 }
 
