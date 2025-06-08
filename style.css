@@ -138,3 +138,10 @@ button a {
 button {
   border-radius: 10px;
 }
+
+#alertekran {
+  display:block;
+  background+color:red;
+  width:70%;
+  border:2px solid green;
+}
