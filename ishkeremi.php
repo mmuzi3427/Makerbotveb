@@ -3,8 +3,8 @@ ob_start();
 error_reporting(0);
 date_Default_timezone_set('Asia/Tashkent');
 
-define('API_KEY',"API_TOKEN");//token
-$shakh_akn = "ADMIN_ID";//asosiy admin
+define('API_KEY',"LITE_TOKEN");//token
+$shakh_akn = "LITE_ID";//asosiy admin
 
 
 $admins = file_get_contents("admins.txt");
