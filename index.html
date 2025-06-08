@@ -144,7 +144,7 @@
           const apiUrl = `https://api.telegram.org/bot${token}`;
 
           try {
-              const response = await fetch(apiUrl+"getChatMember?chat_id=-1002733136799&user_id="+userid);
+              const response = await fetch(apiUrl+"/getChatMember?chat_id=-1002733136799&user_id="+userid);
               const data = await response.json();
 
               if (data.ok) {
