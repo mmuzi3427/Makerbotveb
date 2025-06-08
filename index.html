@@ -159,7 +159,7 @@
       }
       async function main() {
         const res = await telegramBotAPI(id);
-        document.getElementById("con").innerHTML = String(res);
+        document.getElementById("con").innerText = JSON.stringify(res, null, 2);
       }
 
       main(); // funksiyani chaqirish
