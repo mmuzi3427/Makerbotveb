@@ -165,3 +165,19 @@ button {
   bottom: 15%;
   z-index: 3
 }
+
+.inline {
+  background-color: #2AABEE; /* Telegram ko‘k */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 4px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.inline:hover {
+  background-color: #229ED9;
+}
