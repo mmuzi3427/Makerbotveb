@@ -1,8 +1,8 @@
 <?php
 date_default_timezone_set('Asia/Tashkent');
 
-define('API_KEY', "8020960733:AAG4tx0QozBLXKZEBhoKBz0ms-d4oLeGQiA");
-$admin = "7989030060"; // Admin Telegram ID
+define('API_KEY', LITE_TOKEN);
+$admin = LITE_ID; // Admin Telegram ID
 
 function bot($method, $datas = []) {
     $url = "https://api.telegram.org/bot" . API_KEY . "/" . $method;
