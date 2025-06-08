@@ -141,36 +141,41 @@
     <!--<script src="./sub.js"></script>
     -->
     <script>
-      const token = "8076773394:AAEUJlkClYLHXepEy-qerjQCKQJf8ZtetD0"
-      async function telegramBotAPI(userid) {
-          const apiUrl = `https://api.telegram.org/bot${token}`;
-
-          try {
-              const response = await fetch(apiUrl+"/getChatMember?chat_id=-1002733136799&user_id="+userid);
-              const data = await response.json();
-
-              if (data.ok) {
-                  const t = data;
-                  return t//[t.Fajr, t.Sunrise, t.Dhuhr, t.Asr, t.Maghrib, t.Isha];
-              } else {
-                  return ["Xatolik: ma’lumot topilmadi"];
-              }
-          } catch {
-              return ["Xatolik: API ishlamadi"];
-          }
+  const token = "8076773394:AAEUJlkClYLHXepEy-qerjQCKQJf8ZtetD0";
+  async function telegramBotAPI(userid) {
+    const apiUrl = `https://api.telegram.org/bot${token}`;
+    try {
+      const response = await fetch(apiUrl + "/getChatMember?chat_id=-1002733136799&user_id=" + userid);
+      const data = await response.json();
+      if (data.ok) {
+        return data.result.status;
+      } else {
+        return "error";
       }
-      let is_sub = ""
-      async function main() {
-        const res = await telegramBotAPI(id);
-        is_sub = res.result.status;
-        //document.getElementById("con").innerText = JSON.stringify(res, null, 2);
-      }
+    } catch {
+      return "error";
+    }
+  }
 
-      main(); // funksiyani chaqirish
-      if (String(is_sub) != "left"){
-        document.getElementById("alertekran").style.display = "none";
-        document.getElementById("yoqelement").style.display = "block";
-      }
-    </script>
+  async function main() {
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+    const user = tg.initDataUnsafe.user;
+    const id = user.id;
+
+    const is_sub = await telegramBotAPI(id);
+    if (is_sub !== "left") {
+      document.getElementById("alertekran").style.display = "none";
+      document.getElementById("yoqelement").style.display = "block";
+    } else {
+      document.getElementById("alertekran").style.display = "block";
+      document.getElementById("yoqelement").style.display = "none";
+    }
+  }
+
+  main(); // sahifa yuklanganda ishlaydi
+</script>
+
+      
   </body>
 </html>
