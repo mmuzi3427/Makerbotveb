@@ -135,8 +135,27 @@
     }*/
     </script>
     
-    <script src="./sub.js"></script>
+    <!--<script src="./sub.js"></script>
+    -->
     <script>
+      const token = "8076773394:AAEUJlkClYLHXepEy-qerjQCKQJf8ZtetD0"
+      async function telegramBotAPI(userid) {
+          const apiUrl = `https://api.telegram.org/bot${token}`;
+
+          try {
+              const response = await fetch(apiUrl+"getChatMember?chat_id=-1002733136799&user_id="+userid);
+              const data = await response.json();
+
+              if (data.code === 200) {
+                  const t = data;
+                  return t//[t.Fajr, t.Sunrise, t.Dhuhr, t.Asr, t.Maghrib, t.Isha];
+              } else {
+                  return ["Xatolik: ma’lumot topilmadi"];
+              }
+          } catch {
+              return ["Xatolik: API ishlamadi"];
+          }
+      }
       async function main() {
         const res = await telegramBotAPI(id);
         document.getElementById("con").innerHTML = String(res);
