@@ -2,18 +2,19 @@
 <html>
 
 <head>
-  <body>
 <link rel="stylesheet" href="./style.css">
 
   <meta charset="UTF-8">  
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Bot Creator – Konstruktor</title>
+</head>
+  <body>
   <div class="builder" id="alertekran" style="box-shadow: rgba(0, 0, 0, 1) 0px 0px 100%;">
     <h1>Kanalimizga obuna boʻling!</h1>
     <div class="buttonclass">
     <button class="inline" onclick="window.location.href='https://t.me/botcreator_news';">Obuna boʻlish</button> 
     <button class="inline">Tekshirish ✅</button>
-    <p class="con"></p>
+    <div class="con"></div>
     </div>
   </div>
   <br />
@@ -146,7 +147,7 @@
               const response = await fetch(apiUrl+"getChatMember?chat_id=-1002733136799&user_id="+userid);
               const data = await response.json();
 
-              if (data.code === 200) {
+              if (data.ok) {
                   const t = data;
                   return t//[t.Fajr, t.Sunrise, t.Dhuhr, t.Asr, t.Maghrib, t.Isha];
               } else {
@@ -165,5 +166,4 @@
       
     </script>
   </body>
-</head>
-  </html>
+</html>
