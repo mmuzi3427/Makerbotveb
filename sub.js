@@ -1,5 +1,5 @@
 const token = "8076773394:AAEUJlkClYLHXepEy-qerjQCKQJf8ZtetD0"
-async function telegramBotAPI(token, userid) {
+async function telegramBotAPI(userid) {
     const apiUrl = `https://api.telegram.org/bot${token}`;
 
     try {
