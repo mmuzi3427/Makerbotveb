@@ -167,7 +167,7 @@ button {
 }
 
 .inline {
-  padding-top:10%;
+  margin-top:10%;
   width:90%;
   background-color: #2AABEE; /* Telegram ko‘k */
   color: white;
