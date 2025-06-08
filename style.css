@@ -145,4 +145,7 @@ button {
   width:80%;
   border:2px solid green;
   position: fixed;
+  left: 10%;
+  top: 15%;
+  bottom: 15%;
 }
