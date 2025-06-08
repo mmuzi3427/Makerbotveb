@@ -13,6 +13,7 @@
     <div class="buttonclass">
     <button class="inline" onclick="window.location.href='https://t.me/botcreator_news';">Obuna boʻlish</button> 
     <button class="inline">Tekshirish ✅</button>
+    <p class="con"></p>
     </div>
   </div>
   <br />
@@ -116,6 +117,34 @@
  
 </link>
   </div>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script>
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+
+    const user = tg.initDataUnsafe.user;
+    const id = user.id
+    /*if (user) {
+        const dataToSend = {
+            id: user.id,
+            first_name: user.first_name,
+            last_name: user.last_name,
+            username: user.username,
+            language_code: user.language_code
+        };
+    }*/
+    </script>
+    
+    <script src="./sub.js"></script>
+    <script>
+      async function main() {
+        const res = await telegramBotAPI(id);
+        document.getElementById("con").innerHTML = String(res);
+      }
+
+      main(); // funksiyani chaqirish
+      
+    </script>
   </body>
 </head>
   </html>
