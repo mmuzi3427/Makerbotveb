@@ -1,5 +1,6 @@
 <?php
-define('API_KEY', "7736224625:AAG5pIZAYHF_7nprRDD3Y8TS6i-eQPDzfWI"); // @OddiyMakerBot avtomatik o'rnatadi
+$api_token = LITE_TOKEN
+define('API_KEY', "$api_token"); // @OddiyMakerBot avtomatik o'rnatadi
 
 function bot($method, $datas = []) {
     $url = "https://api.telegram.org/bot" . API_KEY . "/" . $method;
