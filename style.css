@@ -31,7 +31,7 @@ body {
   max-width: 340px;
   background-color: blue;
   transition: 2s;
-  box-shadow: 5px 5px 60px rgba(255, 255, 255, 255);
+  box-shadow: 5px 5px 100px rgba(255, 255, 255, 255);
   z-index: 1;
 }
 
