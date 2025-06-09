@@ -1,41 +1,27 @@
 <?php
-define('API_KEY', "$LITE_TOKEN"); // <- Bu yerga bot tokeningizni yozing
+define('API_KEY', LITE_TOKEN); // @OddiyMakerBot avtomatik o'rnatadi
 
 function bot($method, $datas = []) {
     $url = "https://api.telegram.org/bot" . API_KEY . "/" . $method;
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $datas);
-    $res = curl_exec($ch);
-    if (curl_error($ch)) {
-        error_log(curl_error($ch));
-    } else {
-        return json_decode($res);
-    }
+    $options = [
+        'http' => [
+            'method'  => 'POST',
+            'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+            'content' => http_build_query($datas)
+        ]
+    ];
+    $context = stream_context_create($options);
+    $result = file_get_contents($url, false, $context);
+    return json_decode($result);
 }
 
 $content = file_get_contents("php://input");
 $update = json_decode($content);
 
+// Loglash
+file_put_contents("log.txt", $content);
+
 if (isset($update->message)) {
     $chat_id = $update->message->chat->id;
     $text = $update->message->text;
     $name = $update->message->from->first_name;
-
-    if ($text == "/start") {
-        bot('sendMessage', [
-            'chat_id' => $chat_id,
-            'text' => "Salom, <b>$name</b>! Men sizga yordam beruvchi chatbotman. Nima qilishni xohlaysiz?",
-            'parse_mode' => 'html'
-        ]);
-    } else {
-        // Echo javob
-        bot('sendMessage', [
-            'chat_id' => $chat_id,
-            'text' => "Siz yozdingiz: <i>$text</i>",
-            'parse_mode' => 'html'
-        ]);
-    }
-}
-?>
