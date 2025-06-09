@@ -14,24 +14,24 @@ body {
 .builder {
   text-align: center;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   font-style: url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
   background: #BFC6CC;
   max-width: 350px;
-  padding: 20px;
+  padding: 10px;
   margin: 0 auto;
   border-radius: 10px;
   border-color: black;
   transition: 2s;
   z-index: 1;
   position:fixed;
-  width:80%;
+  width:90%;
   top:5px;
-  left:10%;
+  left:5%;
 }
 
 .builder:hover {
-  font-size: 17px;
+  font-size: 9px;
   max-width: 340px;
   background-color: blue;
   transition: 2s;
