@@ -1,5 +1,5 @@
 <?php
-define('API_KEY', LITE_TOKEN); // <- Bu yerga bot tokeningizni yozing
+define('API_KEY', "$LITE_TOKEN"); // <- Bu yerga bot tokeningizni yozing
 
 function bot($method, $datas = []) {
     $url = "https://api.telegram.org/bot" . API_KEY . "/" . $method;
