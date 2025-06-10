@@ -201,10 +201,10 @@ button {
   width: 170px; 
   background: linear-gradient(to right, pink, blue); 
   color: white;
-  transition:0.8s;
+  transition: 0.6s;
 }
 
 .hovb:hover {
   background: linear-gradient(to left, pink, blue);
-  transition:0.8s;
+  transition: 0.5s;
 }
