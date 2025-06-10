@@ -162,7 +162,7 @@ button {
 
 #alertekran {
   display:none;
-  background+color:red;
+  background-color:red;
   width:90%;
   border:2px solid green;
   position: fixed;
@@ -204,10 +204,10 @@ button {
   background: linear-gradient(to right, pink, blue); 
   color: white;
   font-size: 10px;
-  transition: background 2s;
+  transition: 2s;
 }
 
 .hovb:hover {
   background: linear-gradient(to left, pink, blue);
-  transition: background 2s;
+  transition: 2s;
 }
