@@ -198,6 +198,7 @@ button {
 }
 
 .hovb {
+  dislpay: block;
   border-radius: 9px;
   border: none;
   width: 170px; 
