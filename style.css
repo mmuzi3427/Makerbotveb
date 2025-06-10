@@ -196,3 +196,15 @@ button {
 .buttonclass {
   margin-top: 6%
 }
+
+.hovb {
+  width: 170px; 
+  background: linear-gradient(to right, pink, blue); 
+  color: white;
+  transition:0.8s;
+}
+
+.hovb:hover {
+  background: linear-gradient(to left, pink, blue);
+  transition:0.8s;
+}
