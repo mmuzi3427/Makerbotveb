@@ -204,12 +204,12 @@ button {
   width: 170px; 
   background: linear-gradient(to right, pink, blue); 
   color: white;
-  font-size: 15px;
-  padding: 5px;
-  transition: background 0.5s;
+  font-size: 10px;
+  padding: 3px;
+  transition: background 1s;
 }
 
 .hovb:active {
   background: linear-gradient(to left, pink, blue);
-  transition: background 0.5s;
+  transition: background 1s;
 }
