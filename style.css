@@ -206,10 +206,10 @@ button {
   color: white;
   font-size: 15px;
   padding: 5px;
-  transition: 2s;
+  transition: background 0.5s;
 }
 
 .hovb:active {
   background: linear-gradient(to left, pink, blue);
-  transition: 2s;
+  transition: background 0.5s;
 }
