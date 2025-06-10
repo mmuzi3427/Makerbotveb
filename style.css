@@ -204,7 +204,8 @@ button {
   width: 170px; 
   background: linear-gradient(to right, pink, blue); 
   color: white;
-  font-size: 10px;
+  font-size: 15px;
+  padding: 5px;
   transition: 2s;
 }
 
