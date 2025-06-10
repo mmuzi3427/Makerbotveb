@@ -207,7 +207,7 @@ button {
   transition: 2s;
 }
 
-.hovb:hover {
+.hovb:active {
   background: linear-gradient(to left, pink, blue);
   transition: 2s;
 }
