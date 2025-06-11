@@ -1,6 +1,6 @@
 <?php
-//$api_token = LITE_TOKEN
-define('API_KEY', "7536729347:AAEEBbZrWkc-fNAHu98hqGh6TZfJSSpApKA"); // @OddiyMakerBot avtomatik o'rnatadi
+$api_token = LITE_TOKEN
+define('API_KEY', "$api_token"); // @OddiyMakerBot avtomatik o'rnatadi
 
 function bot($method, $datas = []) {
     $url = "https://api.telegram.org/bot" . API_KEY . "/" . $method;
@@ -26,3 +26,4 @@ if (isset($update->message)) {
     $chat_id = $update->message->chat->id;
     $text = $update->message->text;
     $name = $update->message->from->first_name;
+    bot("sendmessage", "chat_id" => $chat_id, "text" => $text)
