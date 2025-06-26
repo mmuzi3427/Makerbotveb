@@ -38,68 +38,70 @@ function bot($method,$datas=[]){
 
 
 function getAdmin($chat){
-$url = "https://api.telegram.org/bot".AlijonovUz."/getChatAdministrators?chat_id=@".$chat;
-$result = file_get_contents($url);
-$result = json_decode ($result);
-return $result->ok;
-}
+	$url = "https://api.telegram.org/bot".AlijonovUz."/getChatAdministrators?chat_id=@".$chat;
+        $result = file_get_contents($url);
+        $result = json_decode ($result);
+        return $result->ok;
+    }
 
 function deleteFolder($path){
-if(is_dir($path) === true){
-$files = array_diff(scandir($path), array('.', '..'));
-foreach ($files as $file)
-deleteFolder(realpath($path) . '/' . $file);
-return rmdir($path);
-}else if (is_file($path) === true)
-return unlink($path);
-return false;
-}
+	if(is_dir($path) === true){
+        $files = array_diff(scandir($path), array('.', '..'));
+        foreach ($files as $file)
+		deleteFolder(realpath($path) . '/' . $file);
+                return rmdir($path);
+        }else if (is_file($path) === true)
+                return unlink($path);
+                return false;
+        }
 
 function token($str,$begin,$end){
-for($i = $begin; $i < $end; $i++) $str[$i] = '*';
-return $str;
-}
+	for($i = $begin; $i < $end; $i++) $str[$i] = '*';
+        return $str;
+    }
 
 function joinchat($id){
-global $mid;
-$array = array("inline_keyboard");
-$get = file_get_contents("tizim/kanal.txt");
-$ex = explode("\n",$get);
-if($get == null){
-return true;
+	global $mid;
+        $array = array("inline_keyboard");
+        $get = file_get_contents("tizim/kanal.txt");
+        $ex = explode("\n",$get);
+        if($get == null){
+		return true;
 	}else{
-for($i=0;$i<=count($ex) -1;$i++){
-$url = explode("\n",$get)[$i]; 
-$a = json_decode(file_get_contents("https://api.telegram.org/bot".AlijonovUz."/getchat?chat_id=$url"));
-$name = $a->result->title;
-     $ret = bot("getChatMember",[
-         "chat_id"=>"$url",
-         "user_id"=>$id,
-         ]);
-$stat = $ret->result->status;
-         if((($stat=="creator" or $stat=="administrator" or $stat=="member"))){
-      $array['inline_keyboard']["$i"][0]['text'] = "✅ ". $name;
-      $array['inline_keyboard']["$i"][0]['url'] = "https://t.me/".str_replace('@','',$url);
-         }else{
-  $array['inline_keyboard']["$i"][0]['text'] = "❌ ". $name;
-      $array['inline_keyboard']["$i"][0]['url'] = "https://t.me/".str_replace('@','',$url);
-$uns = true;
-}
-}
+		for($i=0;$i<=count($ex) -1;$i++){
+			$url = explode("\n",$get)[$i];
+			$a = json_decode(file_get_contents("https://api.telegram.org/bot".AlijonovUz."/getchat?chat_id=$url"));
+		        $name = $a->result->title;
+			$ret = bot("getChatMember",[
+				   "chat_id"=>"$url",
+				   "user_id"=>$id,
+			        ]);
+			
+
+			$stat = $ret->result->status;
+			if((($stat=="creator" or $stat=="administrator" or $stat=="member"))){
+				$array['inline_keyboard']["$i"][0]['text'] = "✅ ". $name;
+				$array['inline_keyboard']["$i"][0]['url'] = "https://t.me/".str_replace('@','',$url);
+			}else{
+				$array['inline_keyboard']["$i"][0]['text'] = "❌ ". $name;
+				$array['inline_keyboard']["$i"][0]['url'] = "https://t.me/".str_replace('@','',$url);
+			        $uns = true;
+			}
+	        }
 $array['inline_keyboard']["$i"][0]['text'] = "🔄 Tekshirish";
 $array['inline_keyboard']["$i"][0]['callback_data'] = "result";
 if($uns == true){
-     bot('sendMessage',[
-         'chat_id'=>$id,
-         'text'=>"⛔️ <b>Botdan to'liq foydalanish uchun</b> quyidagi kanallarga obuna bo'ling:",
-'parse_mode'=>html,
-'disable_web_page_preview'=>true,
-'reply_markup'=>json_encode($array),
-]);  
-exit();
-return false;
+	bot('sendMessage',[
+	    'chat_id'=>$id,
+            'text'=>"⛔️ <b>Botdan to'liq foydalanish uchun</b> quyidagi kanallarga obuna bo'ling:",
+	    'parse_mode'=>html,
+	    'disable_web_page_preview'=>true,
+	    'reply_markup'=>json_encode($array),
+	]);
+	exit();
+	return false;
 }else{
-return true;
+	return true;
 }
 }
 }
