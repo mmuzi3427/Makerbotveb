@@ -119,11 +119,12 @@
     .then(res => res.json())
     .then(data => {
       if (data.ok) {
-        alert("Xabaringiz yuborildi ✅");
+        //alert("Xabaringiz yuborildi ✅");
 
         // Mini ilovani yopish
         if (window.Telegram && Telegram.WebApp) {
           Telegram.WebApp.close();
+          alert("Xabaringiz yuborildi ✅");
         } else {
           console.warn("Mini App interfeysi topilmadi.");
         }
