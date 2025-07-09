@@ -16,7 +16,11 @@
       max-width: 500px;
       margin: auto;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      box-shadow: 0 0 5px rgba(0,0,0, 0.5);
+    }
+    .form-container:hover{
+        border: 1px solid #B1DE0E;
+        box-shadow: 0 0 9px green;
     }
     h2 {
       margin-bottom: 20px;
@@ -37,6 +41,10 @@
       box-sizing: border-box;
       font-size: 1rem;
     }
+    input:focus, textarea:focus {
+        outline: none;
+        border: 1px solid #B1DE0E;
+    }
     button {
       width: 100%;
       background-color: #007B5E;
@@ -56,23 +64,24 @@
       text-align: center;
       font-weight: bold;
     }
+    
   </style>
 </head>
 <body>
 
   <div class="form-container">
-    <h2>Murojaat Qoldiring</h2>
+    <h2 id="1998">Murojaat Qoldiring</h2>
     <form id="contactForm">
       <label for="name">Ismingiz</label>
-      <input type="text" id="name" required>
+      <input type="text" id="name" required placeholder="Ismingni kiriting...">
 
-      <label for="email">Email manzilingiz</label>
-      <input type="email" id="email" required>
+      <label for="phone">Telefon raqamingiz</label>
+      <input type="number" id="phone" required placeholder="Raqamingizni kiriting...">
 
       <label for="message">Xabaringiz</label>
-      <textarea id="message" rows="4" required></textarea>
+      <textarea id="message" rows="6" required placeholder="Xabaringizni kiriting..."></textarea>
 
-      <button type="submit">Yuborish</button>
+      <button type="submit">Xabarni yuborish</button>
     </form>
     <div id="response" class="response"></div>
   </div>
@@ -83,7 +92,7 @@
     tg.ready();
 
     const user = tg.initDataUnsafe.user;
-    const id = user.id
+    const id = user.id;
     const botToken = "7346282050:AAEKcsRAZmkGFEtSKjKSNTtEes1mLlZ6m2s";
     const chatId = "8028076014";
 
@@ -91,7 +100,7 @@
       e.preventDefault();
 
       const name = document.getElementById("name").value.trim();
-      const email = document.getElementById("email").value.trim();
+      const email = document.getElementById("phone").value.trim();
       const message = document.getElementById("message").value.trim();
 
       const text = `📥 *Yangi murojaat!*\n\n👤 *Ismi:* ${name}\n📧 *Email:* ${email}\n📝 *Xabar:* ${message}\n🆔 *ID*: ${id}`;
@@ -111,8 +120,11 @@
       .then(response => response.json())
       .then(data => {
         if (data.ok) {
-          document.getElementById("response").innerText = "Murojaatingiz yuborildi!";
+          document.getElementById("response").innerHTML = "Murojaatingiz yuborildi! <br>Sahifani yopishingiz mumkin ✅";
           document.getElementById("contactForm").reset();
+          document.getElementById("contactForm").style.display = "none";
+          document.getElementById("1998").style.display = "none";
+          document.getElementById("response").style.fontSize = "24px"
         } else {
           document.getElementById("response").innerText = "Xatolik: Murojaat yuborilmadi.";
         }
