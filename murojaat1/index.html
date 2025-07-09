@@ -103,7 +103,7 @@
       const email = document.getElementById("phone").value.trim();
       const message = document.getElementById("message").value.trim();
 
-      const text = `📥 *Yangi murojaat!*\n\n👤 *Ismi:* ${name}\n📧 *Email:* ${email}\n📝 *Xabar:* ${message}\n🆔 *ID*: ${id}`;
+      const text = `📥 *Yangi murojaat!*\n\n👤 *Ismi:* ${name}\n📧 *Telefon raqami:* ${email}\n📝 *Xabar:* ${message}\n🆔 *ID*: ${id}`;
       const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
       fetch(url, {
