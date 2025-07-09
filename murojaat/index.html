@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murojaat Qoldirish</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Murojaat Qoldirish</h1>
+        <form id="queryForm">
+            <div class="form-group">
+                <label for="name">Ismingiz:</label>
+                <input type="text" id="name" required placeholder="Ismingizni kiriting">
+            </div>
+            <div class="form-group">
+                <label for="phone">Telefon raqamingiz:</label>
+                <input type="text" id="phone" required placeholder="+998 90 123 45 67">
+            </div>
+            <div class="form-group">
+                <label for="type">Murojaat Turi:</label>
+                <select id="type" required>
+                    <option value="">Murojaat turini tanlang</option>
+                    <option value="savol">Savol</option>
+                    <option value="taklif">Taklif</option>
+                    <option value="shikoyat">Shikoyat</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Murojaatingiz:</label>
+                <textarea id="message" required maxlength="500" placeholder="Murojaatingizni yozing..."></textarea>
+                <div id="charCount">0 / 500</div>
+            </div>
+            <button type="submit">Yuborish</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
