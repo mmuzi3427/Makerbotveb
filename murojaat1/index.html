@@ -76,8 +76,14 @@
     </form>
     <div id="response" class="response"></div>
   </div>
-
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  
   <script>
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+
+    const user = tg.initDataUnsafe.user;
+    const id = user.id
     const botToken = "7346282050:AAEKcsRAZmkGFEtSKjKSNTtEes1mLlZ6m2s";
     const chatId = "8028076014";
 
@@ -88,7 +94,7 @@
       const email = document.getElementById("email").value.trim();
       const message = document.getElementById("message").value.trim();
 
-      const text = `📥 *Yangi murojaat!*\n\n👤 *Ismi:* ${name}\n📧 *Email:* ${email}\n📝 *Xabar:* ${message}`;
+      const text = `📥 *Yangi murojaat!*\n\n👤 *Ismi:* ${name}\n📧 *Email:* ${email}\n📝 *Xabar:* ${message}\n🆔 *ID*: ${id}`;
       const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
       fetch(url, {
