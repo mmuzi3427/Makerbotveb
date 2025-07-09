@@ -105,35 +105,38 @@
 
       const text = `📥 *Yangi murojaat!*\n\n👤 *Ismi:* ${name}\n📧 *Telefon raqami:* ${email}\n📝 *Xabar:* ${message}\n🆔 *ID*: ${id}`;
       const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        chat_id: chatId,
+        text: text,
+        parse_mode: "Markdown"
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.ok) {
+        alert("Xabaringiz yuborildi ✅");
 
-      fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text: text,
-          parse_mode: "Markdown"
-        })
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.ok) {
-          document.getElementById("response").innerHTML = "Murojaatingiz yuborildi! <br>Sahifani yopishingiz mumkin ✅";
-          document.getElementById("contactForm").reset();
-          document.getElementById("contactForm").style.display = "none";
-          document.getElementById("1998").style.display = "none";
-          document.getElementById("response").style.fontSize = "24px"
+        // Mini ilovani yopish
+        if (window.Telegram && Telegram.WebApp) {
+          Telegram.WebApp.close();
         } else {
-          document.getElementById("response").innerText = "Xatolik: Murojaat yuborilmadi.";
+          console.warn("Mini App interfeysi topilmadi.");
         }
-      })
-      .catch(error => {
-        document.getElementById("response").innerText = "Tarmoq xatosi. Qayta urinib ko‘ring.";
-        console.error("Telegram xatosi:", error);
-      });
+
+        document.getElementById("contactForm").reset();
+      } else {
+        alert("❌ Xatolik: Yuborilmadi. Qayta urinib ko‘ring.");
+      }
+    })
+    .catch(() => {
+      alert("❌ Tarmoq xatosi. Qayta urinib ko‘ring.");
     });
+  });
   </script>
 
 </body>
