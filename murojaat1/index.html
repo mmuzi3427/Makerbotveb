@@ -4,27 +4,119 @@
   <meta charset="UTF-8">
   <title>Murojaat Qoldirish</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+    .form-container {
+      background-color: #fff;
+      padding: 25px;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #333;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+    button {
+      width: 100%;
+      background-color: #007B5E;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005c45;
+    }
+    .response {
+      margin-top: 15px;
+      color: green;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
+
   <div class="form-container">
     <h2>Murojaat Qoldiring</h2>
     <form id="contactForm">
       <label for="name">Ismingiz</label>
-      <input type="text" id="name" name="name" required>
+      <input type="text" id="name" required>
 
       <label for="email">Email manzilingiz</label>
-      <input type="email" id="email" name="email" required>
+      <input type="email" id="email" required>
 
       <label for="message">Xabaringiz</label>
-      <textarea id="message" name="message" rows="4" required></textarea>
+      <textarea id="message" rows="4" required></textarea>
 
       <button type="submit">Yuborish</button>
     </form>
     <div id="response" class="response"></div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const botToken = "7346282050:AAEKcsRAZmkGFEtSKjKSNTtEes1mLlZ6m2s";
+    const chatId = "8028076014";
+
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const text = `📥 *Yangi murojaat!*\n\n👤 *Ismi:* ${name}\n📧 *Email:* ${email}\n📝 *Xabar:* ${message}`;
+      const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: text,
+          parse_mode: "Markdown"
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.ok) {
+          document.getElementById("response").innerText = "Murojaatingiz yuborildi!";
+          document.getElementById("contactForm").reset();
+        } else {
+          document.getElementById("response").innerText = "Xatolik: Murojaat yuborilmadi.";
+        }
+      })
+      .catch(error => {
+        document.getElementById("response").innerText = "Tarmoq xatosi. Qayta urinib ko‘ring.";
+        console.error("Telegram xatosi:", error);
+      });
+    });
+  </script>
+
 </body>
-  </html>
-  
+</html>
